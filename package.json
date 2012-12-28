@@ -1,0 +1,15 @@
+{
+  "name": "model-auth",
+  "version": "0.0.1",
+  "description": "model authorization",
+  "keywords": [],
+  "author": "matthew mueller <mattmuelle@gmail.com>",
+  "dependencies": {
+    "pwd" : "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "main": "index"
+}
