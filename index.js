@@ -37,7 +37,7 @@ function authorize(email, password, fn) {
     if(err || !user) return fn(err, user);
     pwd.hash(password, user.salt(), function(err, hash) {
       if(user.password() == hash) {
-        return fn(null, user.primary());
+        return fn(null, user);
       } else {
         return fn(null, false);
       }
