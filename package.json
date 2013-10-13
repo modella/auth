@@ -1,7 +1,7 @@
 {
-  "name": "model-auth",
+  "name": "modella-auth",
   "version": "0.0.2",
-  "description": "model authorization",
+  "description": "authorization plugin for modella",
   "keywords": [],
   "author": "matthew mueller <mattmuelle@gmail.com>",
   "dependencies": {
