@@ -1,11 +1,11 @@
 {
   "name": "modella-auth",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "authorization plugin for modella",
   "keywords": [],
   "author": "matthew mueller <mattmuelle@gmail.com>",
   "dependencies": {
-    "pwd" : "*"
+    "pwd": "*"
   },
   "devDependencies": {
     "mocha": "*",

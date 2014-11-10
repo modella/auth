@@ -1,4 +1,10 @@
 
+0.1.0 / 2014-11-10
+==================
+
+  * dont rely on other plugins.
+  * skip if salt exists, not if new
+
 0.0.2 / 2013-05-10
 ==================
 
