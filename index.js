@@ -11,9 +11,9 @@ var pwd = require('pwd');
  */
 
 module.exports = function(User) {
-  User.attr('salt', { required : true, type : 'string' });
+  User.attr('salt');
   User.on('saving', function(user, done) {
-    if(!user.isNew()) return done();
+    if(user.salt()) return done();
     pwd.hash(user.password(), function(err, salt, hash) {
       user.salt(salt);
       user.password(hash);
