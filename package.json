@@ -8,8 +8,11 @@
     "pwd": "*"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*"
+    "modella": "^0.2.14",
+    "modella-memory": "^0.3.0"
+  },
+  "scripts": {
+    "test": "node test.js"
   },
   "main": "index"
 }
