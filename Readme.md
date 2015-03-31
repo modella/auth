@@ -11,6 +11,7 @@ var auth = require('modella-auth');
 // Create model
 var User = modella('user')
   .attr('id')
+  .attr('email')
   .attr('pass');
 
 // Use middleware
@@ -18,6 +19,7 @@ User.use(auth({ password: 'pass' }));
 
 // creating
 User
+  .email('a@b.com')
   .pass('secretz')
   .save(function(err, res) {
     user.pass() // salted password
@@ -30,6 +32,18 @@ User.authorize(id, body.password, function(err, user) {
   else if (!user) // wrong password
   else // all good!
 })
+
+// or authorize an existing user
+  User.findOne({email: 'a@b.com'}, function (err, model) {
+
+    User.authorize(model, '1234', function (err, model) {
+      if (err) // something went wrong
+      else if (!user) // wrong password
+      else // all good!
+    });
+
+  });
+
 ```
 
 ## API
