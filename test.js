@@ -21,12 +21,12 @@ User()
     res.pass(); // salted password
     res.salt(); // hash
 
-    User.authorize(res, '1234', function (err, user) {
+    User.authenticate(res, '1234', function (err, user) {
       if (err) assert.fail(err, false, 'something went wrong');
       assert.equal(user, false); // not authorized
     });
 
-    User.authorize(res, 'secretz', function (err, user) {
+    User.authenticate(res, 'secretz', function (err, user) {
       if (err) assert.fail(err, false, 'something went wrong');
       assert.ok(user); // authorized
     });

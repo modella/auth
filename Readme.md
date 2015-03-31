@@ -1,6 +1,6 @@
 # auth
 
-  Server-side plugin for modella. Supports auto-salting, password hashing (using pbkdf2) and authorization.
+  Server-side plugin for modella. Supports auto-salting, password hashing (using pbkdf2) and authentication.
 
 ## Example
 
@@ -27,16 +27,16 @@ User
   })
 
 // after submitting a form
-User.authorize(id, body.password, function(err, user) {
+User.authenticate(id, body.password, function(err, user) {
   if (err) // something went wrong
   else if (!user) // wrong password
   else // all good!
 })
 
-// or authorize an existing user
+// or authenticate an existing user
   User.findOne({email: 'a@b.com'}, function (err, model) {
 
-    User.authorize(model, '1234', function (err, model) {
+    User.authenticate(model, '1234', function (err, model) {
       if (err) // something went wrong
       else if (!user) // wrong password
       else // all good!
@@ -57,7 +57,7 @@ Initialize auth with the following options:
 
 auth introduces the following methods to your modella models:
 
-### Model#authorize(id, password, fn)
+### Model#authenticate(id, password, fn)
 
 Find your model with `id` and confirm it with your `password`. `fn` will return the model if the given credentials are correct, `false` if your credentials are wrong, or an `err` if something bad happened.
 

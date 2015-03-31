@@ -32,14 +32,15 @@ module.exports = function(opts) {
     });
 
     /**
-     * Model.authorize
+     * Model.authenticate
      *
      * @param {String} query or Model instance
      * @param {String} password
      * @param {Function} fn
      */
 
-    Model.authorize = function authorize(query, pass, fn) {
+    Model.authenticate =
+    Model.authorize = function authenticate(query, pass, fn) {
 
       if(query instanceof  Model) {
         // query is model
