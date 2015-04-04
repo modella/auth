@@ -32,24 +32,37 @@ module.exports = function(opts) {
     });
 
     /**
-     * Model.authorize
+     * Model.authenticate
      *
-     * @param {String} query
+     * @param {String} query or Model instance
      * @param {String} password
      * @param {Function} fn
      */
 
-    Model.authorize = function authorize(query, pass, fn) {
-      Model.find(query, function(err, model) {
-        if(err || !model) return fn(err, model);
-        pwd.hash(pass, model[salt](), function(err, hash) {
-          if(model[password]() == hash) {
+    Model.authenticate =
+    Model.authorize = function authenticate(query, pass, fn) {
+
+      if(query instanceof  Model) {
+        // query is model
+        checkPassword(query, pass, fn);
+      } else {
+        // find model
+        Model.find(query, function (err, model) {
+          if (err || !model) return fn(err, model);
+          checkPassword(model, pass, fn);
+        });
+      }
+
+      function checkPassword(model, pass, fn) {
+        pwd.hash(pass, model[salt](), function (err, hash) {
+          if (model[password]() == hash) {
             return fn(null, model);
           } else {
             return fn(null, false);
           }
         });
-      });
+      }
+
     };
 
   }
