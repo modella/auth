@@ -1,6 +1,6 @@
 {
   "name": "modella-auth",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "authentication plugin for modella",
   "keywords": [],
   "author": "matthew mueller <mattmuelle@gmail.com>",

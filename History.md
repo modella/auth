@@ -1,4 +1,10 @@
 
+0.1.2 / 2015-06-11
+==================
+
+  * rename to authenticate
+  * adds authorize on model
+
 0.1.1 / 2014-11-11
 ==================
 
